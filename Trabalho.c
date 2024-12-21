@@ -39,7 +39,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
-    } while (opcao != 0); // enquanto a opção for diferente de 0, o menu principal vai ser exibido
+    } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     printf("Saindo do programa...\n");
     return opcao;
 }

@@ -1,0 +1,21 @@
+Atenção!!!
+- O programa não deve conter variáveis globais
+- Escreva um código modularizado (dividido em funções) - pelo menos 1 função para cada item no menu
+- Para cada função deve haver um comentário contendo: objetivo da função, o que significa cada parâmetro e o retorno da função.
+-  O programa controla para cada cliente: os dados cadastrais, o valor total de compras, a quantidade 
+de bônus e os dados da última compra. (Utilize um vetor de elementos do tipo tCliente)
+
+regras:
+- A cada x reais de compras, o cliente ganha 1 ponto em bônus. 
+Inicialmente x vale R$100 e um bônus vale R$ 0,50, mas esses valores podem ser alterados.
+
+
+sobre o "Bônus":
+- A quantidade de bônus é sempre um valor inteiro.  
+- Caso o valor correspondente da compra corresponda a um valor de bônus com casa
+decimais, considere apenas a parte inteira sem arredondar!!!
+- Em hipótese alguma a quantidade de bônus é negativa. Caso
+o valor calculado seja negativo, atribua o valor zero para o bônus.
+-  Em hipótese alguma a quantidade de bônus deve ultrapassar o
+teto. Caso o valor calculado ultrapasse, atribua o valor do teto para a
+quantidade de bônus.

@@ -85,6 +85,10 @@ int main(){ // função principal que executa as funções secundarias
     if(opcao == 1){
         ConfigurarBonus(); // chama a função ConfigurarBonus
     }
+    else if(opcao == 0){
+        printf("Saindo do programa...\n");
+        return 0;
+    }
     else{
         printf("A opcao %d nao foi implementada\n", opcao);
     }

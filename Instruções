@@ -19,3 +19,21 @@ o valor calculado seja negativo, atribua o valor zero para o bônus.
 -  Em hipótese alguma a quantidade de bônus deve ultrapassar o
 teto. Caso o valor calculado ultrapasse, atribua o valor do teto para a
 quantidade de bônus.
+
+Sobre o Menu principal:
+esboço:
+printf("MENU PRINCIPAL\n");
+        printf("1 - Configurar Bonus\n"); 
+        printf("2 - Cadastrar Cliente\n");
+        printf("3 - Alterar dados do Cliente\n");
+        printf("4 - Efetivar Compra\n"); 
+        printf("5 - Cancelar Compra\n");
+        printf("6 - Consultar Bonus\n");
+        printf("7 - Listar dados de todos os clientes\n");
+        printf("8 - Listar bonus de todos cliente\n");
+        printf("9 - Listar clientes pelo valor total de compras\n");
+        printf("00 - Sair\n");
+        printf("Digite a opção desejada: ");
+        scanf("%i", &opcao);
+
+- 

@@ -26,7 +26,7 @@ struct tCompra{
 int MenuPrincipal(){ // Menu Principal
     int opcao; // opção de escolha do menu principal
     do{
-        printf("MENU PRINCIPAL\n");
+        printf("----------MENU PRINCIPAL\n");
         printf("1- Configurar Bonus\n");
         printf("2- Cadastrar Cliente\n");
         printf("3- Alterar dados do Cliente\n");
@@ -45,9 +45,9 @@ int MenuPrincipal(){ // Menu Principal
 }
 
 void ConfigurarBonus(){ // Função para configurar o bonus
-int opcao; // opção de escolha do menu de configuração de bonus
+    int opcao; // opção de escolha do menu de configuração de bonus
     do{
-        printf("MENU CONFIGURAR BONUS\n");
+        printf("----------MENU CONFIGURAR BONUS\n");
         printf("1- Alterar teto\n");
         printf("2- Digite o valor do bonus\n");
         printf("3- alterar valor para receber bonus\n");
@@ -86,11 +86,8 @@ int main(){ // função principal que executa as funções secundarias
         ConfigurarBonus(); // chama a função ConfigurarBonus
     }
     else if(opcao == 0){
-        printf("Saindo do programa...\n");
         return 0;
     }
-    else{
-        printf("A opcao %d nao foi implementada\n", opcao);
-    }
+
     return 0;
 }

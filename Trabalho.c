@@ -11,7 +11,7 @@ struct tCLiente{
 
 struct tBonus{
     int teto;
-    float valor;
+    float uvalor; // valor de 1 bonus
     float valorBonificado;
 };
 
@@ -56,14 +56,17 @@ void ConfigurarBonus(){ // Função para configurar o bonus
 
         switch (opcao){
             case 1:
-                scanf("%d", &inputBonus.teto);
-                break;
+            printf("Qual o novo valor do teto? ");
+            scanf("%d", &inputBonus.teto);
+            break;
 
             case 2:
-                scanf("%f", &inputBonus.valor);
-                break;
+            printf("Qual o valor de 1 bonus?");
+            scanf("%f", &inputBonus.uvalor);
+            break;
 
             case 3:
+            printf("Qual o novo valor para receber bonus? ");
             scanf("%f", &inputBonus.valorBonificado);
             break;
             case 0:
@@ -71,7 +74,7 @@ void ConfigurarBonus(){ // Função para configurar o bonus
             break;
 
             default:
-            printf("Opcao invalida\n");
+            printf("Erro: valor negativo.\n");
             break;
         }
     }while(opcao != 0);
@@ -91,6 +94,5 @@ int main(){ // função principal que executa as funções secundarias
     else{
         printf("A opcao %d nao foi implementada\n", opcao);
     }
-
     return 0;
 }

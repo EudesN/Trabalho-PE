@@ -82,6 +82,10 @@ void ConfigurarBonus(){ // Função para configurar o bonus
     }while(opcao != 0);
 }
 
+void CadastrarCliente(){
+    printf("Qual o CPF? ");
+}
+
 int main(){ // função principal que executa as funções secundarias
 
     int opcao = MenuPrincipal(); // chama a função MenuPrincipal

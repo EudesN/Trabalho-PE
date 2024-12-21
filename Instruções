@@ -41,9 +41,10 @@ Sobre a opção 1: (Função para configurar o bonus)
 
 
 Sobre a opção 2: (Função para cadastrar clientes)
+
 - Cadastrar CPF (mão permitir o mesmo cpf)
 - Caso mesmo CPF imprimir “Erro: CPF ja cadastrado.” 
 - Caso CPF valido, cadastrar tbm telefone e nome
-- >Fazer a quantidade de bonus e o total em compras do cliente igual a zero
+- Fazer a quantidade de bonus e o total em compras do cliente igual a zero
 
 

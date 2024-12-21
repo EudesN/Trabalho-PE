@@ -46,7 +46,8 @@ int MenuPrincipal(){ // Menu Principal
     return opcao;
 }
 
-void ConfigurarBonus(){ // Função para configurar o bonus
+// Função para configurar o bonus
+void ConfigurarBonus(){ 
     int opcao; // opção de escolha do menu de configuração de bonus
     do{
         printf("----------MENU CONFIGURAR BONUS\n");
@@ -82,12 +83,14 @@ void ConfigurarBonus(){ // Função para configurar o bonus
     }while(opcao != 0);
 }
 
-void CadastrarCliente(){
+// Função para cadastrar um cliente
+void CadastrarCliente(){ 
     printf("Qual o CPF? ");
 }
 
-int main(){ // função principal que executa as funções secundarias
+// função principal que executa as funções secundarias
 
+int main(){ 
     int opcao = MenuPrincipal(); // chama a função MenuPrincipal
 
     // etapa que verifica a opção escolhida no MenuPrincipal

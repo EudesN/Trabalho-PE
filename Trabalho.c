@@ -50,7 +50,7 @@ void ConfigurarBonus(){ // Função para configurar o bonus
         printf("----------MENU CONFIGURAR BONUS\n");
         printf("1- Alterar teto\n");
         printf("2- Digite o valor do bonus\n");
-        printf("3- alterar valor para receber bonus\n");
+        printf("3- Alterar valor para receber bonus\n");
         printf("0 - Sair\n");
         scanf("%d", &opcao);
 
@@ -61,7 +61,7 @@ void ConfigurarBonus(){ // Função para configurar o bonus
             break;
 
             case 2:
-            printf("Qual o valor de 1 bonus?");
+            printf("Qual o valor de 1 bonus? ");
             scanf("%f", &inputBonus.uvalor);
             break;
 
@@ -94,5 +94,6 @@ int main(){ // função principal que executa as funções secundarias
     else{
         printf("A opcao %d nao foi implementada\n", opcao);
     }
+    printf("Fim do programa!\n");
     return 0;
 }

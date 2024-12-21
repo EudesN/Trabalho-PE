@@ -88,6 +88,9 @@ int main(){ // função principal que executa as funções secundarias
     else if(opcao == 0){
         return 0;
     }
+    else{
+        printf("A opcao %d nao foi implementada\n", opcao);
+    }
 
     return 0;
 }

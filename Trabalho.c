@@ -100,17 +100,16 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
             printf("Erro: CPF ja cadastrado.\n");
-            printf("---------------------------------------------------\n");
             return;
         }
     }
     struct tCliente novoCliente; //cria var para novo cliente
     strcpy(novoCliente.CPF, cpf); //copia o cpf temporario para o cpf do novo cliente
 
-    printf("Qual o nome?"); // pede o nome do novo cliente
+    printf("Qual o nome? "); // pede o nome do novo cliente
     scanf(" %[^\n]s", novoCliente.nome); 
 
-    printf("Qual o telefone?"); // pede o telefone do novocliente
+    printf("Qual o telefone? "); // pede o telefone do novocliente
     scanf("%s", novoCliente.telefone);
 
     novoCliente.bonus = 0;
@@ -121,7 +120,6 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     (*quantClientes)++;
 
     printf("Cliente cadastrado com sucesso\n");
-    printf("---------------------------------------------------\n");
 }
 
 // função principal que executa as funções secundarias
@@ -134,7 +132,8 @@ int main(){
 
     do{
         opcao = MenuPrincipal(); // chama a função MenuPrincipal
-
+        printf("---------------------------------------------------\n");
+        
         // etapa que verifica a opção escolhida no MenuPrincipal
         if(opcao == 1){
             ConfigurarBonus(); // chama a função ConfigurarBonus

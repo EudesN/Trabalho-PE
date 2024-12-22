@@ -43,6 +43,14 @@ Sobre a opção 1: (Função para configurar o bonus)
 Sobre a opção 2: (Função para cadastrar clientes)
 
 - Cadastrar CPF (mão permitir o mesmo cpf)
+        - como cadastrar o cpf?
+                - scanf o cpf
+                - acrescentar mais um espaço sempre que um novo cpf for cadastrado
+                - copiá-lo em uma matriz 'aCPF'
+                - limpar o vetor 'CPF'
+
+
+
 - Caso mesmo CPF imprimir “Erro: CPF ja cadastrado.” 
 - Caso CPF valido, cadastrar tbm telefone e nome
 - Fazer a quantidade de bonus e o total em compras do cliente igual a zero

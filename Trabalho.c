@@ -1,6 +1,8 @@
 # include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
 
-struct tCLiente{
+struct tCliente{
     char nome[100]; // 99 caracteres + '\0'
     char CPF[12]; // 11 digitos + '\0'
     char telefone[15]; // 14 digitos + '\0'
@@ -84,25 +86,63 @@ void ConfigurarBonus(){
 }
 
 // Função para cadastrar um cliente
-void CadastrarCliente(){ 
-    printf("Qual o CPF? ");
+void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
+    char cpf[12]; // var temporario q armazena cpf
+
+    printf("Qual o CPF? "); // solicita o cpf temporario
+    scanf(" %s", cpf);
+
+    for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
+        if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
+            printf("Erro: CPF ja cadastrado.\n");
+            return;
+        }
+    }
+    struct tCliente novoCliente; //cria var para novo cliente
+    strcpy(novoCliente.CPF, cpf); //copia o cpf temporario para o cpf do novo cliente
+
+    printf("Qual o nome?"); // pede o nome do novo cliente
+    scanf(" %[^\n]s", novoCliente.nome); 
+
+    printf("Qual o telefone?"); // pede o telefone do novocliente
+    scanf("%s", novoCliente.telefone);
+
+    novoCliente.bonus = 0;
+    novoCliente.totCompras = 0.0;
+    novoCliente.uCompra = 0.0;
+
+    clientes[*quantClientes] = novoCliente;
+    (*quantClientes)++;
+
+    printf("Cliente cadastrado com sucesso\n");
 }
 
 // função principal que executa as funções secundarias
+int main(){
+    int quantClientes = 0;
+    const int maxClientes = 100;
+    struct tCliente clientes[maxClientes];
+    
+    int opcao;
 
-int main(){ 
-    int opcao = MenuPrincipal(); // chama a função MenuPrincipal
+    do{
+        opcao = MenuPrincipal(); // chama a função MenuPrincipal
 
-    // etapa que verifica a opção escolhida no MenuPrincipal
-    if(opcao == 1){
-        ConfigurarBonus(); // chama a função ConfigurarBonus
-    }
-    else if(opcao == 0){
-        return 0;
-    }
-    else{
-        printf("A opcao %d nao foi implementada\n", opcao);
-    }
-    printf("Fim do programa!\n");
+        // etapa que verifica a opção escolhida no MenuPrincipal
+        if(opcao == 1){
+            ConfigurarBonus(); // chama a função ConfigurarBonus
+        }
+        else if(opcao == 2){
+            CadastrarCliente(clientes, &quantClientes); // chama a função CadastrarCliente
+        }
+        else if(opcao == 0){
+            printf("Fim do programa!\n");
+            return 0;
+        }
+        else{
+            printf("A opcao %d nao foi implementada\n", opcao);
+        }
+    }while(opcao != 0);
+
     return 0;
 }

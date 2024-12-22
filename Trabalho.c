@@ -28,7 +28,9 @@ struct tCompra{
 int MenuPrincipal(){ // Menu Principal
     int opcao; // opção de escolha do menu principal
     do{
-        printf("----------MENU PRINCIPAL\n");
+        printf("---------------------------------------------------\n");
+        printf("MENU PRINCIPAL\n");
+        printf("---------------------------------------------------\n");
         printf("1- Configurar Bonus\n");
         printf("2- Cadastrar Cliente\n");
         printf("3- Alterar dados do Cliente\n");
@@ -52,7 +54,7 @@ int MenuPrincipal(){ // Menu Principal
 void ConfigurarBonus(){ 
     int opcao; // opção de escolha do menu de configuração de bonus
     do{
-        printf("----------MENU CONFIGURAR BONUS\n");
+        printf("MENU CONFIGURAR BONUS\n");
         printf("1- Alterar teto\n");
         printf("2- Digite o valor do bonus\n");
         printf("3- Alterar valor para receber bonus\n");

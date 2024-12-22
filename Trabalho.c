@@ -54,11 +54,14 @@ int MenuPrincipal(){ // Menu Principal
 void ConfigurarBonus(){ 
     int opcao; // opção de escolha do menu de configuração de bonus
     do{
+        printf("---------------------------------------------------\n");
         printf("MENU CONFIGURAR BONUS\n");
         printf("1- Alterar teto\n");
         printf("2- Digite o valor do bonus\n");
         printf("3- Alterar valor para receber bonus\n");
         printf("0 - Sair\n");
+        printf("---------------------------------------------------\n");
+        printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
 
         switch (opcao){

@@ -61,6 +61,7 @@ void ConfigurarBonus(){
         printf("3- Alterar valor para receber bonus\n");
         printf("0 - Sair\n");
         printf("---------------------------------------------------\n");
+
         printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
 
@@ -123,24 +124,40 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
 }
 
 // função que altera o cadastro do cliente
-void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
-    int cpf[12];
+// void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
+//     int cpf[12];
 
-    printf("Qual o CPF?"); // pede o cpf que quer ser alterado
-    scanf("%s", cpf);
+//     printf("Qual o CPF?"); // pede o cpf que quer ser alterado
+//     scanf("%s", cpf);
 
-    for(int i = 0; i < *quantClientes; i++){ 
-        if (strcmp(clientes[i].CPF, cpf) == 0){
-            printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
-            return;
-        }
-    }
-    printf("MENU ALTERAR CLIENTE\n");
-    printf("1 - Alterar CPF\n");
-    printf("2 - Alterar nome\n");
-    printf("Alterar telefone\n");
-    printf("Voltar ao menu principal\n");
-}
+//     for(int i = 0; i < *quantClientes; i++){ 
+//         if (strcmp(clientes[i].CPF, cpf) == 0){
+//             printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
+//             return;
+//         }
+//     }
+//     int opcao = 0;
+//     do{
+//         printf("MENU ALTERAR CLIENTE\n");
+//         printf("1 - Alterar CPF\n");
+//         printf("2 - Alterar nome\n");
+//         printf("3 - Alterar telefone\n");
+//         printf("0 - Voltar ao menu principal\n");
+
+//         printf("Digite a opcao desejada: ");
+//         scanf("%d", opcao);
+//     } while(opcao != 0);
+
+//     switch (opcao)
+//     {
+//     case 1:
+//         clientes
+//         break;
+    
+//     default:
+//         break;
+//     }
+// }
 
 
 // FUNÇÂO PRINCIPAL

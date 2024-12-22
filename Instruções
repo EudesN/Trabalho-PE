@@ -55,4 +55,14 @@ Sobre a opção 2: (Função para cadastrar clientes)
 - Caso CPF valido, cadastrar tbm telefone e nome
 - Fazer a quantidade de bonus e o total em compras do cliente igual a zero
 
+Sobre a opção 3: (Função para alterar dados do cliente)
+- pedir o cpf
+- verificar se o CPF é igual a algum cadastrado
+
+        - caso não exista --> "Erro: CPF nao cadastrado"
+        - Retornar ao Menu
+        
+        - caso exita:
+                - 
+                
 

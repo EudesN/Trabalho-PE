@@ -123,8 +123,23 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
 }
 
 // função que altera o cadastro do cliente
-void AlterarCadastro(){
+void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
+    int cpf[12];
 
+    printf("Qual o CPF?"); // pede o cpf que quer ser alterado
+    scanf("%s", cpf);
+
+    for(int i = 0; i < *quantClientes; i++){ 
+        if (strcmp(clientes[i].CPF, cpf) == 0){
+            printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
+            return;
+        }
+    }
+    printf("MENU ALTERAR CLIENTE\n");
+    printf("1 - Alterar CPF\n");
+    printf("2 - Alterar nome\n");
+    printf("Alterar telefone\n");
+    printf("Voltar ao menu principal\n");
 }
 
 

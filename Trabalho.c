@@ -122,18 +122,22 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     printf("Cliente cadastrado com sucesso\n");
 }
 
-// função principal que executa as funções secundarias
+// função que altera o cadastro do cliente
+void AlterarCadastro(){
+
+}
+
+
+// FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;
     const int maxClientes = 100;
     struct tCliente clientes[maxClientes];
-    
     int opcao;
 
     do{
         opcao = MenuPrincipal(); // chama a função MenuPrincipal
-        printf("---------------------------------------------------\n");
-        
+
         // etapa que verifica a opção escolhida no MenuPrincipal
         if(opcao == 1){
             ConfigurarBonus(); // chama a função ConfigurarBonus

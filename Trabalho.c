@@ -95,6 +95,7 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
             printf("Erro: CPF ja cadastrado.\n");
+            printf("---------------------------------------------------\n");
             return;
         }
     }
@@ -115,6 +116,7 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     (*quantClientes)++;
 
     printf("Cliente cadastrado com sucesso\n");
+    printf("---------------------------------------------------\n");
 }
 
 // função principal que executa as funções secundarias

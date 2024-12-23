@@ -214,8 +214,8 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
 
         printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
+        
         printf("Qual o CPF do cliente? ");
-
         fgets(cpf, sizeof(cpf), stdin);
         cpf[strcspn(cpf, "\n")] = '\0';
 

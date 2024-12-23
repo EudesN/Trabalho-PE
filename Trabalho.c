@@ -43,7 +43,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
         scanf(" %d", &opcao);
-        getchar();
+        limparBuffer();
 
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     if(opcao == 0){
@@ -322,7 +322,10 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("Compra realizada com sucesso!\n");
     }
 
-
+    void limparBuffer() {
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;

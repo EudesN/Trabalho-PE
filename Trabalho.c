@@ -106,7 +106,7 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     fgets(cpf, sizeof(cpf), stdin);
     cpf[strcspn(cpf, "\n")] = '\0'; // remove o '\n' do final da string
 
-    if(strlen(cpf) != 11){
+    if(strlen(cpf) != 11){ // verificação extra para caso cpf não possua 11 numeros
         printf("Erro: CPF deve possuir 11 digitos.\n");
         return;
     }
@@ -175,6 +175,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             int duploCpf = 0;
 
             printf("Qual o novo CPF? ");
+            getchar();
             fgets(novoCPF, sizeof(novoCPF), stdin);
             novoCPF[strcspn(novoCPF, "\n")] = '\0';
 

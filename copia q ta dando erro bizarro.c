@@ -42,7 +42,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("9- Listar clientes pelo valor total de compras\n");
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar();
 
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
@@ -65,7 +65,7 @@ void ConfigurarBonus(){
         printf("---------------------------------------------------\n");
 
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar();
 
         switch (opcao){
@@ -103,9 +103,14 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
 
     printf("Qual o CPF? "); // solicita o cpf temporario
+    fflush(stdin);
     fgets(cpf, sizeof(cpf), stdin);
     cpf[strcspn(cpf, "\n")] = '\0'; // remove o '\n' do final da string
 
+    if(strlen(cpf) != 11){ // verificação extra para caso cpf não possua 11 numeros
+        printf("Erro: CPF deve possuir 11 digitos.\n");
+        return;
+    }
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
             printf("Erro: CPF ja cadastrado.\n");
@@ -163,7 +168,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("0 - Voltar ao menu principal\n");
 
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar(); // limpar o '\n' do buffer
 
         if(opcao == 1){
@@ -317,7 +322,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         printf("Compra realizada com sucesso!\n");
     }
-
 
 // FUNÇÂO PRINCIPAL
 int main(){

@@ -226,6 +226,9 @@ int main(){
         else if(opcao == 3){
             AlterarCadastro(clientes, &quantClientes); //chama a função de alterar cadastro
         }
+        else if(opcao == 4){
+            EfetivarCompra(clientes, &quantClientes); // chama a função de efetivar compra
+        }
         else if(opcao == 0){
             printf("Fim do programa!\n");
             return 0;

@@ -158,7 +158,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             int existeCpf = 0; // reutilizar o flag para verificação de novoCPF
             printf("Qual o novo CPF? ");
             scanf("%s", novoCPF);
-            for(int i = 0; i < quantClientes; i++){
+            for(int i = 0; i < *quantClientes; i++){
                 if(strcmp(clientes[i].CPF, novoCPF) == 0){
                     indice = i;
                     existeCpf = 1;
@@ -176,6 +176,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
     } while(opcao != 0);
 }
+
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;

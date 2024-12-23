@@ -197,13 +197,44 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
     void EfetivarCompra(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
+        int opcao = 0;
 
-        printf("1 - Qual o CPF do cliente? ");
-        printf("2 - Qual o valor da compra?");
-        printf("3 - Deseja utilizar o bonus? [1-sim <outro valor> - nao] ");
-        printf("4 - Qual a valor de pagamento do cliente? R$");
+        do{
+            printf("EFETIVAR COMPRA\n");
+            printf("1 - Qual o CPF do cliente? ");
+            printf("2 - Qual o valor da compra?");
+            printf("3 - Deseja utilizar o bonus? [1-sim <outro valor> - nao] ");
+            printf("4 - Qual a valor de pagamento do cliente? R$");
+            printf("0 - Voltar ao menu principal\n");
 
+            printf("Digite a opcao desejada: ");
+            scanf("%d", &opcao);
+
+            if(opcao == 1){
+                printf("Qual o CPF do cliente? ");
+                scanf("%s", cpf);
+
+                int indice = -1; // flag q armazena o indice do cliente
+                for(int i = 0; i < *quantClientes; i++){ // laço para verificar se o cpf já tá cadastrado
+                    if(strcmp(clientes[i].CPF, cpf) == 0){
+                        indice = i; // a var indice recebe i q é o cpf do cliente q quer efetivar a compra
+                        break;
+                    }
+                    
+                }
+                if(indice = -1){ // caso o cpf não seja encontrado
+                    printf("Erro: CPF nao cadastrado\n");
+                    return; // retorna para o menu principal
+                }
+                else if(indice != -1){ // caso o cpf seja encontrado
+                
+                }
+
+            }
+        } while(opcao != 0);
         
+
+
     }
 
 // FUNÇÂO PRINCIPAL

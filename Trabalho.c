@@ -43,6 +43,8 @@ int MenuPrincipal(){ // Menu Principal
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
+        while (getchar() != '\n');
+
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     if(opcao == 0){
         printf("Saindo do programa...\n");
@@ -168,7 +170,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
             printf("Qual o novo CPF? ");
             fgets(novoCPF, 12, stdin);
-            cpf[strcspn(novoCPF, "\n")] = 0;
+            novoCPF[strcspn(novoCPF, "\n")] = 0;
             while(getchar() != '\n');
 
             for(int i = 0; i < *quantClientes; i++){

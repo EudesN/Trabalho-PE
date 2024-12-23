@@ -226,8 +226,60 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         do{
             printf("Qual o valor da compra? R$ ");
             scanf("%f", &valorCompra);
+            if(valorCompra <= 0.0){
+                printf("“Erro: valor negativo. Digite novamente.\n");
+            }
         } while(valorCompra <= 0.0); // obrigar o usuario a digitar um valor positivo
-        
+
+        float valorF = valorCompra;
+        if(cliente -> bonus > 0){
+            int usarBonus;
+            do{
+                printf("Deseja usar o bonus? [1- sim, 0- nao] ");
+                scanf("%d", &usarBonus);
+                if(usarBonus !=0 && usarBonus != 1){
+                    printf("Erro: opcao invalida. Digite novamente.\n");
+                }
+            } while(usarBonus != 0 && usarBonus !=1); // obrigar o usuario a digitar 0 ou 1
+            if(usarBonus == 1){
+                float descontBonus = y;// descontro do bonus = bonus do cliente * valor de 1 bonus que é y
+
+                if(descontBonus > valorCompra){ // se descontro do bonus for maior que o valor da compra
+                    descontBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq não pode ser maior 
+                }
+                x = cliente -> bonus;
+                valorF -=descontBonus; // valor final = valor da compra - desconto do bonus
+                printf("BONUS ATUAL = %d, VALOR da Compra utilizado = %.2f\n", x, valorF);
+            }
+        }
+
+        float valorPago; // valor do pagamento
+        do{
+            printf("Qual o valor do pagamento? R$ ");
+            scanf("%f", &valorPago);
+            if(valorPago <= 0){
+                printf("Erro: valor negativo. Digite novamente.\n");
+            }
+        } while(valorPago <= 0);
+
+        while(valorPago < valorF){
+            printf("Erro: Valor do pagamento inferior ao valor da compra. Deseja desisitir da compra?[1-sim <outro valor>-nao]: ");
+            int desistir;
+            scanf("%d", &desistir);
+            if(desistir == 1){
+                printf("COMPRA NÃO EFETIVADA. Valor devolvido ao cliente: R$ %.2f.\n", valorPago);
+                return;
+            }
+            printf("Qual o valor do pagamento do cliente? R$ ");
+            scanf("%f", &valorPago);
+        }
+        printf("TROCO = R$ %.2f", valorPago - valorF);
+
+        // atualizar os dados do cliente
+        cliente -> uCompra = valorCompra; // ultima compra do cliente
+        cliente ->totCompras += valorCompra;
+
+        if()
     }
 
 

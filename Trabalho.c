@@ -25,6 +25,11 @@ struct tCompra{
     float vuBonus; // valor de 1 bonus quando essa compra foi realizada
 };
 
+    void limparBuffer() {
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+    }
+    
 int MenuPrincipal(){ // Menu Principal
     int opcao; // opção de escolha do menu principal
     do{
@@ -322,10 +327,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("Compra realizada com sucesso!\n");
     }
 
-    void limparBuffer() {
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-    }
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;

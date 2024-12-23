@@ -42,7 +42,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("9- Listar clientes pelo valor total de compras\n");
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
-        scanf(" %d", &opcao);
+        scanf("%d", &opcao);
 
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     if(opcao == 0){

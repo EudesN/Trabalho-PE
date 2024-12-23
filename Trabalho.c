@@ -113,7 +113,8 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     scanf(" %[^\n]s", novoCliente.nome); 
 
     printf("Qual o telefone? "); // pede o telefone do novocliente
-    scanf("%s", novoCliente.telefone);
+    fgets(novoCliente.telefone, sizeof(novoCliente.telefone), stdin);
+    while(getchar() != '\n');
 
     novoCliente.bonus = 0;
     novoCliente.totCompras = 0.0;
@@ -130,7 +131,8 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     char cpf[12];
 
     printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
-    scanf("%s", cpf);
+    fgets(cpf, 12, stdin);
+    while(getchar() != '\n');
 
     int indice = -1; // armazena o indice do cliente
     for(int i = 0; i < *quantClientes; i++){ 
@@ -160,7 +162,8 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             int duploCpf = 0;
 
             printf("Qual o novo CPF? ");
-            scanf("%s", novoCPF);
+            fgets(novoCPF, 12, stdin);
+            while(getchar() != '\n');
 
             for(int i = 0; i < *quantClientes; i++){
                 if(strcmp(clientes[i].CPF, novoCPF) == 0){
@@ -184,7 +187,8 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         else if(opcao == 3){
             printf("Qual o novo telefone? ");
-            scanf("%s", clientes[indice].telefone);
+            fgtes(clientes[indice].telefone, sizeof(clientes[indice].telefone), stdin);
+            while(getchar() != '\n');
             
         }
         else if(opcao == 0){
@@ -199,11 +203,11 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
     void EfetivarCompra(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
-        int opcao = 0;
 
         printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
         printf("Qual o CPF do cliente? ");
-        scanf("%s", cpf);
+        fgets(cpf, 12, stdin);
+        while(getchar() != '\n');
 
         int indice = -1; // flag q armazena o indice do cliente
         for(int i = 0; i < *quantClientes; i++){ // laço para verificar se o cpf já tá cadastrado

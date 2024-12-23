@@ -168,7 +168,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
             printf("Qual o novo CPF? ");
             fgets(novoCPF, 12, stdin);
-            cpf[strcspn(cpf, "\n")] = 0;
+            cpf[strcspn(novoCPF, "\n")] = 0;
             while(getchar() != '\n');
 
             for(int i = 0; i < *quantClientes; i++){
@@ -190,15 +190,15 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             printf("Qual o novo nome? ");
             fgets(clientes[indice].nome, sizeof(clientes[indice].nome), stdin);
             clientes[indice].nome[strcspn(clientes[indice].nome, "\n")] = 0;
+            while(getchar() != '\n');
 
             printf("Nome alterado.\n");
         }
         else if(opcao == 3){
             printf("Qual o novo telefone? ");
-            fgtes(clientes[indice].telefone, sizeof(clientes[indice].telefone), stdin);
+            fgets(clientes[indice].telefone, sizeof(clientes[indice].telefone), stdin);
             clientes[indice].telefone[strcspn(clientes[indice].telefone, "\n")] = 0;
             while(getchar() != '\n');
-            
         }
         else if(opcao == 0){
             printf("Voltando ao menu principal...\n");
@@ -214,7 +214,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
 
         printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
-        
+
         printf("Qual o CPF do cliente? ");
         fgets(cpf, 12, stdin);
         cpf[strcspn(cpf, "\n")] = 0;

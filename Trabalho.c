@@ -246,13 +246,14 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
                     printf("Erro: opcao invalida. Digite novamente.\n");
                 }
             } while(usarBonus != 0 && usarBonus !=1); // obrigar o usuario a digitar 0 ou 1
+
             if(usarBonus == 1){
                 float descontBonus = y;// descontro do bonus = bonus do cliente * valor de 1 bonus que é y
 
                 if(descontBonus > valorCompra){ // se descontro do bonus for maior que o valor da compra
                     descontBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq não pode ser maior 
                 }
-                x = cliente -> bonus;
+                
                 valorF -=descontBonus; // valor final = valor da compra - desconto do bonus
                 printf("BONUS ATUAL = %d, VALOR da Compra utilizado = %.2f\n", x, valorF);
             }

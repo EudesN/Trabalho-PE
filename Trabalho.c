@@ -110,7 +110,8 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     strcpy(novoCliente.CPF, cpf); //copia o cpf temporario para o cpf do novo cliente
 
     printf("Qual o nome? "); // pede o nome do novo cliente
-    scanf(" %[^\n]s", novoCliente.nome); 
+    fgets(novoCliente.nome, sizeof(novoCliente.nome), stdin);
+    while(getchar() != '\n'); 
 
     printf("Qual o telefone? "); // pede o telefone do novocliente
     fgets(novoCliente.telefone, sizeof(novoCliente.telefone), stdin);

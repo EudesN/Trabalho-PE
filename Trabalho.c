@@ -199,49 +199,37 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
         int opcao = 0;
 
-        do{
-            printf("EFETIVAR COMPRA\n");
-            printf("1 - Qual o CPF do cliente? ");
-            printf("2 - Qual o valor da compra?");
-            printf("3 - Deseja utilizar o bonus? [1-sim <outro valor> - nao] ");
-            printf("4 - Qual a valor de pagamento do cliente? R$");
-            printf("0 - Voltar ao menu principal\n");
+        printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
+        printf("Qual o CPF do cliente? ");
+        scanf("%s", cpf);
 
-            printf("Digite a opcao desejada: ");
-            scanf("%d", &opcao);
-
-            if(opcao == 1){
-
-                printf("Qual o CPF do cliente? ");
-                scanf("%s", cpf);
-
-                int indice = -1; // flag q armazena o indice do cliente
-                for(int i = 0; i < *quantClientes; i++){ // laço para verificar se o cpf já tá cadastrado
-                    if(strcmp(clientes[i].CPF, cpf) == 0){
-                        indice = i; // a var indice recebe i q é o cpf do cliente q quer efetivar a compra
-                        break;
-                    }
-                    
-                }
-
-                int x = clientes[indice].bonus; // valor do bonus do que o cliente possui 
-                int y = clientes[indice].bonus * inputBonus.uvalor; // valor correspondernte em reais da quantidade de bonus
-
-                if(indice == -1){ // caso o cpf não seja encontrado
-                    printf("Erro: CPF nao cadastrado\n");
-                    return; // retorna para o menu principal
-                }
-                else if(indice != -1){ // caso o cpf seja encontrado
-                
-                printf("Bonus = %f, VALOR CORRESPONDENTE = %f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
-                }
-
+        int indice = -1; // flag q armazena o indice do cliente
+        for(int i = 0; i < *quantClientes; i++){ // laço para verificar se o cpf já tá cadastrado
+            if(strcmp(clientes[i].CPF, cpf) == 0){
+                indice = i; // a var indice recebe i q é o cpf do cliente q quer efetivar a compra
+                break;
             }
-        } while(opcao != 0);
+        }
+        if(indice == -1){ // caso o cpf não seja encontrado
+            printf("Erro: CPF nao cadastrado\n");
+            return; // retorna para o menu principal
+        }
+
+        struct tCliente *cliente = &clientes[indice];
+        int x = cliente -> bonus; // valor do bonus do que o cliente possui 
+        float y = cliente -> bonus * inputBonus.uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
+
+        printf("Bonus = %d, VALOR CORRESPONDENTE = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
+
+        float valorCompra; // valor da compra
+
+        do{
+            printf("Qual o valor da compra? R$ ");
+            scanf("%f", &valorCompra);
+        } while(valorCompra <= 0.0); // obrigar o usuario a digitar um valor positivo
         
-
-
     }
+
 
 // FUNÇÂO PRINCIPAL
 int main(){

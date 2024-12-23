@@ -96,7 +96,9 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
 
     printf("Qual o CPF? "); // solicita o cpf temporario
-    scanf(" %s", cpf);
+    fgets(cpf, 12, stdin); // fgets para evitar estouro do buffer
+    while(getchar() != '\n'); // limpar buffer
+
 
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes

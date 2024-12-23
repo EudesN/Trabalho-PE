@@ -43,7 +43,6 @@ int MenuPrincipal(){ // Menu Principal
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
-
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     if(opcao == 0){
         printf("Saindo do programa...\n");
@@ -64,7 +63,7 @@ void ConfigurarBonus(){
         printf("---------------------------------------------------\n");
 
         printf("Digite a opcao desejada: ");
-        scanf(" %d", &opcao);
+        scanf("%d", &opcao);
 
         switch (opcao){
             case 1:
@@ -81,7 +80,6 @@ void ConfigurarBonus(){
             printf("Qual o novo valor para receber bonus? ");
             scanf("%f", &inputBonus.valorBonificado);
             break;
-
             case 0:
             printf("Saindo do menu de configuracao de bonus...\n");
             break;
@@ -98,14 +96,13 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
 
     printf("Qual o CPF? "); // solicita o cpf temporario
-    fgets(cpf, sizeof(cpf), stdin);
-    cpf[strcspn(cpf, "\n")] = '\0'; // remove o '\n' do final da string
-    getchar();
+    scanf(" %s", cpf);
 
     if(strlen(cpf) != 11){ // verificação extra para caso cpf não possua 11 numeros
         printf("Erro: CPF deve possuir 11 digitos.\n");
         return;
     }
+    
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
             printf("Erro: CPF ja cadastrado.\n");
@@ -116,12 +113,10 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     strcpy(novoCliente.CPF, cpf); //copia o cpf temporario para o cpf do novo cliente
 
     printf("Qual o nome? "); // pede o nome do novo cliente
-    fgets(novoCliente.nome, sizeof(novoCliente.nome), stdin);
-    novoCliente.nome[strcspn(novoCliente.nome, "\n")] = '\0'; 
+    scanf(" %[^\n]s", novoCliente.nome); 
 
     printf("Qual o telefone? "); // pede o telefone do novocliente
-    fgets(novoCliente.telefone, sizeof(novoCliente.telefone), stdin);
-    novoCliente.telefone[strcspn(novoCliente.telefone, "\n")] = '\0';
+    scanf("%s", novoCliente.telefone);
 
     novoCliente.bonus = 0;
     novoCliente.totCompras = 0.0;
@@ -138,8 +133,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     char cpf[12];
 
     printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
-    fgets(cpf, sizeof(cpf), stdin);
-    cpf[strcspn(cpf, "\n")] = '\0'; 
+    scanf("%s", cpf);
 
     int indice = -1; // armazena o indice do cliente
     for(int i = 0; i < *quantClientes; i++){ 
@@ -154,7 +148,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     }
 
     int opcao = 0;
-
     do{
         printf("MENU ALTERAR CLIENTE\n");
         printf("1 - Alterar CPF\n");
@@ -163,16 +156,14 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("0 - Voltar ao menu principal\n");
 
         printf("Digite a opcao desejada: ");
-        scanf(" %d", &opcao);
-        getchar(); // limpar o '\n' do buffer
+        scanf("%d", &opcao);
 
         if(opcao == 1){
             char novoCPF[12];
             int duploCpf = 0;
 
             printf("Qual o novo CPF? ");
-            fgets(novoCPF, sizeof(novoCPF), stdin);
-            novoCPF[strcspn(novoCPF, "\n")] = '\0';
+            scanf("%s", novoCPF);
 
             for(int i = 0; i < *quantClientes; i++){
                 if(strcmp(clientes[i].CPF, novoCPF) == 0){
@@ -191,14 +182,13 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         else if(opcao == 2){
             printf("Qual o novo nome? ");
-            fgets(clientes[indice].nome, sizeof(clientes[indice].nome), stdin);
-            clientes[indice].nome[strcspn(clientes[indice].nome, "\n")] = '\0';
+            scanf(" %[^\n]s", clientes[indice].nome);
             printf("Nome alterado.\n");
         }
         else if(opcao == 3){
             printf("Qual o novo telefone? ");
-            fgets(clientes[indice].telefone, sizeof(clientes[indice].telefone), stdin);
-            clientes[indice].telefone[strcspn(clientes[indice].telefone, "\n")] = '\0';
+            scanf("%s", clientes[indice].telefone);
+            
         }
         else if(opcao == 0){
             printf("Voltando ao menu principal...\n");
@@ -213,11 +203,10 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     void EfetivarCompra(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
 
-        printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
 
+        printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
         printf("Qual o CPF do cliente? ");
-        fgets(cpf, sizeof(cpf), stdin);
-        cpf[strcspn(cpf, "\n")] = '\0';
+        scanf("%s", cpf);
 
         int indice = -1; // flag q armazena o indice do cliente
         for(int i = 0; i < *quantClientes; i++){ // laço para verificar se o cpf já tá cadastrado
@@ -242,7 +231,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         do{
             printf("Qual o valor da compra? R$ ");
             scanf("%f", &valorCompra);
-
             if(valorCompra <= 0.0){
                 printf("“Erro: valor negativo. Digite novamente.\n");
             }
@@ -254,7 +242,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             do{
                 printf("Deseja usar o bonus? [1- sim, 0- nao] ");
                 scanf("%d", &usarBonus);
-
                 if(usarBonus !=0 && usarBonus != 1){
                     printf("Erro: opcao invalida. Digite novamente.\n");
                 }
@@ -275,7 +262,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         do{
             printf("Qual o valor do pagamento? R$ ");
             scanf("%f", &valorPago);
-
             if(valorPago <= 0){
                 printf("Erro: valor negativo. Digite novamente.\n");
             }
@@ -285,7 +271,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             printf("Erro: Valor do pagamento inferior ao valor da compra. Deseja desisitir da compra?[1-sim <outro valor>-nao]: ");
             int desistir;
             scanf("%d", &desistir);
-
             if(desistir == 1){
                 printf("COMPRA NÃO EFETIVADA. Valor devolvido ao cliente: R$ %.2f.\n", valorPago);
                 return;
@@ -312,6 +297,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         printf("Compra realizada com sucesso!\n");
     }
+
 
 // FUNÇÂO PRINCIPAL
 int main(){

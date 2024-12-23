@@ -42,7 +42,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("9- Listar clientes pelo valor total de compras\n");
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar();
 
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
@@ -65,7 +65,7 @@ void ConfigurarBonus(){
         printf("---------------------------------------------------\n");
 
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar();
 
         switch (opcao){
@@ -167,7 +167,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("0 - Voltar ao menu principal\n");
 
         printf("Digite a opcao desejada: ");
-        scanf("%d", &opcao);
+        scanf(" %d", &opcao);
         getchar(); // limpar o '\n' do buffer
 
         if(opcao == 1){

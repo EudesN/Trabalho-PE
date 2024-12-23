@@ -133,7 +133,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     int indice = -1; // armazena o indice do cliente
     for(int i = 0; i < *quantClientes; i++){ 
         if (strcmp(clientes[i].CPF, cpf) == 0){
-            indice = 1;
+            indice = i;
             break;
         }
     }
@@ -167,7 +167,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
                 }
             }
 
-            if(duploCpf == 1){
+            if(duploCpf){ // se o flag for 1, imprime a mensagem de cpf já cadastrado
                 printf("CPF ja cadastrado.\n");
             }
             else{
@@ -185,9 +185,19 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             scanf("%s", clientes[indice].telefone);
             
         }
+        else if(opcao == 0){
+            printf("Voltando ao menu principal...\n");
+            printf("---------------------------------------------------\n");
+        }
+        else{
+            printf("Opcao invalida.\n");
+        }
     } while(opcao != 0);
 }
 
+    void EfetivarCompra(struct tCliente clientes[], int *quantClientes){
+        
+    }
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;

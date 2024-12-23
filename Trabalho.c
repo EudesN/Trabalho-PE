@@ -201,7 +201,9 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
         printf("1 - Qual o CPF do cliente? ");
         printf("2 - Qual o valor da compra?");
         printf("3 - Deseja utilizar o bonus? [1-sim <outro valor> - nao] ");
-        printf("4 - Qual a valor de pagamento do cliente? R$")
+        printf("4 - Qual a valor de pagamento do cliente? R$");
+
+        
     }
 
 // FUNÇÂO PRINCIPAL

@@ -227,13 +227,13 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
                 int x = clientes[indice].bonus; // valor do bonus do que o cliente possui 
                 int y = clientes[indice].bonus * inputBonus.uvalor; // valor correspondernte em reais da quantidade de bonus
 
-                if(indice = -1){ // caso o cpf não seja encontrado
+                if(indice == -1){ // caso o cpf não seja encontrado
                     printf("Erro: CPF nao cadastrado\n");
                     return; // retorna para o menu principal
                 }
                 else if(indice != -1){ // caso o cpf seja encontrado
                 
-                prinf("Bonus = %f, VALOR CORRESPONDENTE = %f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
+                printf("Bonus = %f, VALOR CORRESPONDENTE = %f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
                 }
 
             }

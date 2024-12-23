@@ -175,7 +175,6 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
             int duploCpf = 0;
 
             printf("Qual o novo CPF? ");
-            getchar();
             fgets(novoCPF, sizeof(novoCPF), stdin);
             novoCPF[strcspn(novoCPF, "\n")] = '\0';
 

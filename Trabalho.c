@@ -297,7 +297,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;
-    const int maxClientes = 100;
+    const int maxClientes = 200;
     struct tCliente clientes[maxClientes];
     int opcao;
 

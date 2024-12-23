@@ -197,7 +197,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
     void EfetivarCompra(struct tCliente clientes[], int *quantClientes){
         char cpf[12];
-        int opcao = 0;
+
 
         printf("EFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra
         printf("Qual o CPF do cliente? ");
@@ -297,7 +297,7 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;
-    const int maxClientes = 100;
+    const int maxClientes = 200;
     struct tCliente clientes[maxClientes];
     int opcao;
 

@@ -130,18 +130,19 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
     printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
     scanf("%s", cpf);
 
-    int existeCpf = 0; // flag para saber se o cpf já está cadastrado
+    int indice = -1; // armazena o indice do cliente
     for(int i = 0; i < *quantClientes; i++){ 
         if (strcmp(clientes[i].CPF, cpf) == 0){
-            existeCpf = 1;
-        }
-        else{
-            printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
-            return;
+            indice = 1;
+            break;
         }
     }
-    int opcao = 0;
+    if(indice == -1){
+        printf("CPF nao encontrado.\n");
+        return;
+    }
 
+    int opcao = 0;
     do{
         printf("MENU ALTERAR CLIENTE\n");
         printf("1 - Alterar CPF\n");
@@ -154,18 +155,19 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
         if(opcao == 1){
             char novoCPF[12];
-            int indice = -1;
-            int existeCpf = 0; // reutilizar o flag para verificação de novoCPF
+            int duploCpf = 0;
+
             printf("Qual o novo CPF? ");
             scanf("%s", novoCPF);
+
             for(int i = 0; i < *quantClientes; i++){
                 if(strcmp(clientes[i].CPF, novoCPF) == 0){
-                    indice = i;
-                    existeCpf = 1;
+                    duploCpf = 1; // se o cpf já estiver cadastrado, altera o flag para 1
                     break;
                 }
             }
-            if(existeCpf == 1){
+
+            if(duploCpf == 1){
                 printf("CPF ja cadastrado.\n");
             }
             else{
@@ -173,7 +175,16 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
                 printf("CPF alterado.\n");
             }
         }
-
+        else if(opcao == 2){
+            printf("Qual o novo nome? ");
+            scanf(" %[^\n]s", clientes[indice].nome);
+            printf("Nome alterado.\n");
+        }
+        else if(opcao == 3){
+            printf("Qual o novo telefone? ");
+            scanf("%s", clientes[indice].telefone);
+            
+        }
     } while(opcao != 0);
 }
 

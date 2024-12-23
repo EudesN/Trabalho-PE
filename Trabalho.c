@@ -25,11 +25,6 @@ struct tCompra{
     float vuBonus; // valor de 1 bonus quando essa compra foi realizada
 };
 
-    void limparBuffer() {
-        int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-    }
-    
 int MenuPrincipal(){ // Menu Principal
     int opcao; // opção de escolha do menu principal
     do{
@@ -48,7 +43,7 @@ int MenuPrincipal(){ // Menu Principal
         printf("0- Sair\n");
         printf("Digite a opcao desejada: ");
         scanf(" %d", &opcao);
-        limparBuffer();
+        getchar();
 
     } while (opcao < 0 || opcao > 9); // obriga o usuário a digitar uma opção de 0 a 9
     if(opcao == 0){
@@ -108,6 +103,7 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
 
     printf("Qual o CPF? "); // solicita o cpf temporario
+    fflush(stdin);
     fgets(cpf, sizeof(cpf), stdin);
     cpf[strcspn(cpf, "\n")] = '\0'; // remove o '\n' do final da string
 

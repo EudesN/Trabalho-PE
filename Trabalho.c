@@ -124,42 +124,58 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
 }
 
 // função que altera o cadastro do cliente
-// void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
-//     int cpf[12];
+void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
+    char cpf[12];
 
-//     printf("Qual o CPF?"); // pede o cpf que quer ser alterado
-//     scanf("%s", cpf);
+    printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
+    scanf("%s", cpf);
 
-//     for(int i = 0; i < *quantClientes; i++){ 
-//         if (strcmp(clientes[i].CPF, cpf) == 0){
-//             printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
-//             return;
-//         }
-//     }
-//     int opcao = 0;
-//     do{
-//         printf("MENU ALTERAR CLIENTE\n");
-//         printf("1 - Alterar CPF\n");
-//         printf("2 - Alterar nome\n");
-//         printf("3 - Alterar telefone\n");
-//         printf("0 - Voltar ao menu principal\n");
+    int existeCpf = 0; // flag para saber se o cpf já está cadastrado
+    for(int i = 0; i < *quantClientes; i++){ 
+        if (strcmp(clientes[i].CPF, cpf) == 0){
+            existeCpf = 1;
+        }
+        else{
+            printf("Erro: CPF ainda nao cadastrado\n"); // caso cpf não esteja cadastrado imprima erro e não retorne nada
+            return;
+        }
+    }
+    int opcao = 0;
 
-//         printf("Digite a opcao desejada: ");
-//         scanf("%d", opcao);
-//     } while(opcao != 0);
+    do{
+        printf("MENU ALTERAR CLIENTE\n");
+        printf("1 - Alterar CPF\n");
+        printf("2 - Alterar nome\n");
+        printf("3 - Alterar telefone\n");
+        printf("0 - Voltar ao menu principal\n");
 
-//     switch (opcao)
-//     {
-//     case 1:
-//         clientes
-//         break;
-    
-//     default:
-//         break;
-//     }
-// }
+        printf("Digite a opcao desejada: ");
+        scanf("%d", &opcao);
 
+        if(opcao == 1){
+            char novoCPF[12];
+            int indice = -1;
+            int existeCpf = 0; // reutilizar o flag para verificação de novoCPF
+            printf("Qual o novo CPF? ");
+            scanf("%s", novoCPF);
+            for(int i = 0; i < quantClientes; i++){
+                if(strcmp(clientes[i].CPF, novoCPF) == 0){
+                    indice = i;
+                    existeCpf = 1;
+                    break;
+                }
+            }
+            if(existeCpf == 1){
+                printf("CPF ja cadastrado.\n");
+            }
+            else{
+                strcpy(clientes[indice].CPF, novoCPF);
+                printf("CPF alterado.\n");
+            }
+        }
 
+    } while(opcao != 0);
+}
 // FUNÇÂO PRINCIPAL
 int main(){
     int quantClientes = 0;
@@ -168,14 +184,17 @@ int main(){
     int opcao;
 
     do{
-        opcao = MenuPrincipal(); // chama a função MenuPrincipal
+        opcao = MenuPrincipal(); // chama a função  do Menu Principal
 
         // etapa que verifica a opção escolhida no MenuPrincipal
         if(opcao == 1){
             ConfigurarBonus(); // chama a função ConfigurarBonus
         }
         else if(opcao == 2){
-            CadastrarCliente(clientes, &quantClientes); // chama a função CadastrarCliente
+            CadastrarCliente(clientes, &quantClientes); // chama a função de cadastrar cliente
+        }
+        else if(opcao == 3){
+            AlterarCadastro(clientes, &quantClientes); //chama a função de alterar cadastro
         }
         else if(opcao == 0){
             printf("Fim do programa!\n");

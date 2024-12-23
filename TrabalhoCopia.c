@@ -98,6 +98,11 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     printf("Qual o CPF? "); // solicita o cpf temporario
     scanf(" %s", cpf);
 
+    if(strlen(cpf) != 11){ // verificação extra para caso cpf não possua 11 numeros
+        printf("Erro: CPF deve possuir 11 digitos.\n");
+        return;
+    }
+    
     for(int i = 0; i < *quantClientes; i++){ //verificar se o cpf já tá cadastrado
         if(strcmp(clientes[i].CPF, cpf) == 0){ // compara o cpf temporario com o cpf dos clientes
             printf("Erro: CPF ja cadastrado.\n");

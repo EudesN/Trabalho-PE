@@ -277,9 +277,20 @@ void AlterarCadastro(struct tCliente clientes[], int *quantClientes){
 
         // atualizar os dados do cliente
         cliente -> uCompra = valorCompra; // ultima compra do cliente
-        cliente ->totCompras += valorCompra;
+        cliente ->totCompras += valorCompra; // total de compras do cliente
 
-        if()
+        if(valorF == valorCompra){ // sem usar o bonus
+            int novoBonus = (int) (valorCompra / inputBonus.valorBonificado); // novo bonus = valor da compra / valor para receber bonus
+            cliente -> bonus += novoBonus; // bonus do cliente = bonus do cliente + novo bonus
+            if(cliente -> bonus > inputBonus.teto){
+                cliente -> bonus = inputBonus.teto; // se o bonus do cliente for maior que o teto, o bonus do cliente é igual ao teto
+            }   
+        }
+        else{
+            float usadoBonus = valorCompra - valorF;
+            cliente -> bonus -= (int) (usadoBonus / inputBonus.uvalor);
+        }
+        printf("Compra realizada com sucesso!\n");
     }
 
 

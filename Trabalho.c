@@ -98,9 +98,9 @@ void CadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
 
     printf("Qual o CPF? "); // solicita o cpf temporario
-    fflush(stdin);
     fgets(cpf, sizeof(cpf), stdin);
     cpf[strcspn(cpf, "\n")] = '\0'; // remove o '\n' do final da string
+    getchar();
 
     if(strlen(cpf) != 11){ // verificação extra para caso cpf não possua 11 numeros
         printf("Erro: CPF deve possuir 11 digitos.\n");

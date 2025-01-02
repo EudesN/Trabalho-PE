@@ -104,7 +104,7 @@ int main(){
 		- struct tCliente clientes[]: vetor do tipo tCliente para armazenar as 
 									informações de cada cliente cadastrado
 		- int quantClientes: quantidade de clientes cadastrados
-	Retotno: retorna 0 caso alguma das condições seja atendida (CPF invalido) 
+	Retorno: retorna 0 caso alguma das condições seja atendida (CPF invalido) 
 			 e, caso contrario, retorna 1 (CPF valido) 
 */
 int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
@@ -120,21 +120,14 @@ int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
 			return 0;
 		}
 	}
-	/*
-	for(i = 0; i < quantClientes; i++){
-		if(strcmp(clientes[i].CPF, cpf) == 0){
-			printf("Erro: CPF ja cadastrado.\n");
-			return 0;
-		}
-	}
-	*/
+
 	return 1;
 }
 
 /* 
 	Objetivo: função para configurar o bonus 
 	Parametros: não possui
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void configurarBonus(){ 
     int opcao; // opção de escolha do menu de configuração de bonus
@@ -184,7 +177,7 @@ void configurarBonus(){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: retorna para a função anterior caso caia em alguma condição
 */
 void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
     char cpf[12]; // var temporario q armazena cpf
@@ -227,7 +220,7 @@ void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void alterarCadastro(struct tCliente clientes[], int *quantClientes){
     char cpf[12];
@@ -312,7 +305,7 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void efetivarCompra(struct tCliente clientes[], int *quantClientes){
     char cpf[12];
@@ -419,7 +412,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void cancelarCompra(struct tCliente clientes[], int *quantClientes) {
     char cpf[12];
@@ -541,7 +534,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes) {
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void consultarBonus(struct tCliente clientes[], int *quantClientes){
 	char cpf[12];
@@ -583,7 +576,7 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void listarClientes(struct tCliente clientes[], int *quantClientes){
 	int i;
@@ -630,7 +623,7 @@ void listarBonus(struct tCliente clientes[], int *quantClientes){
 									informações de cada cliente cadastrado
 		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
 							  cadastrados
-	Retotno: sem retorno
+	Retorno: sem retorno
 */
 void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 	int i, opcao, aux;

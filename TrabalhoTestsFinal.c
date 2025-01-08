@@ -504,7 +504,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                 printf("NOME DO CLIENTE: %s\n", cliente->nome);
                 printf("CPF DO CLIENTE: %s\n", cliente->CPF);
                 printf("VALOR DA COMPRA: R$ %.2f\n", cliente->uCompra);
-                printf("BONUS UTILIZADOS: %d\n", cliente->bonus);
+                printf("BONUS RECEBIDOS: %d\n", cliente->bonus);
                 printf("VALOR DE UM BONUS NA EPOCA DA COMPRA: R$ %.2f\n", bonusConfig->uvalor);
                 break;
             }

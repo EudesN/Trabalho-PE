@@ -131,7 +131,6 @@ int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
 */
 void configurarBonus(){ 
     int opcao; // opção de escolha do menu de configuração de bonus
-    //struct tBonus inputBonus = {1000, 0.5, 100.0};
     
     do{
     //    printf("---------------------------------------------------\n");
@@ -596,6 +595,15 @@ void listarClientes(struct tCliente clientes[], int *quantClientes){
 	}
 }
 
+/* 
+	Objetivo: função para consultar o valor e a quantidade de bonus de todos os clientes
+	Parametros: 
+		- struct tCliente clientes[]: vetor do tipo tCliente para armazenar as 
+									informações de cada cliente cadastrado
+		- int *quantClientes: ponteiro que aponta para a quantidade de clientes 
+							  cadastrados
+	Retorno: sem retorno
+*/
 void listarBonus(struct tCliente clientes[], int *quantClientes){
 	int i;
 	if(*quantClientes == 0){

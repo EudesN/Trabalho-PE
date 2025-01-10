@@ -53,17 +53,17 @@ int main() {
 
     do {
         printf("\nMENU PRINCIPAL\n");
-        printf("01 - Configurar bônus\n");
+        printf("01 - Configurar bonus\n");
         printf("02 - Cadastrar cliente\n");
         printf("03 - Alterar cadastro do cliente\n");
         printf("04 - Efetivar compra\n");
         printf("05 - Cancelar compra\n");
-        printf("06 - Consultar bônus\n");
+        printf("06 - Consultar bonus\n");
         printf("07 - Listar dados de todos os clientes\n");
-        printf("08 - Listar bônus de todos os clientes\n");
+        printf("08 - Listar bonus de todos os clientes\n");
         printf("09 - Listar clientes pelo valor total de compras\n");
         printf("00 - Sair\n\n");
-        printf("Digite a opção desejada: ");
+        printf("Digite a opcao desejada: ");
         scanf("%s", opcao);
 
         if (strcmp(opcao, "01") == 0 || strcmp(opcao, "1") == 0) {

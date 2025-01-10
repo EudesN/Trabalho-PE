@@ -64,7 +64,6 @@ int main() {
         printf("08 - Listar bonus de todos os clientes\n");
         printf("09 - Listar clientes pelo valor total de compras\n");
         printf("00 - Sair\n\n");
-        usleep(700000);
         printf("Digite a opcao desejada: ");
         scanf("%s", opcao);
 
@@ -108,7 +107,8 @@ int main() {
 			 e, caso contrario, retorna 1 (CPF valido) 
 */
 int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
-	if(strlen(cpf) != 11){
+	sleep(1);
+    if(strlen(cpf) != 11){
 		printf("Erro: CPF deve possuir 11 caracteres.\n");
 		return 0;
 	}
@@ -132,6 +132,7 @@ int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
 	Retorno: sem retorno
 */
 void configurarBonus(struct tBonus *bonusConfig) {
+    sleep(1);
     int opcao;
     do {
         printf("\nMENU CONFIGURAR BONUS\n");
@@ -175,6 +176,7 @@ void configurarBonus(struct tBonus *bonusConfig) {
 	Retorno: retorna para a função anterior caso caia em alguma condição
 */
 void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
+    sleep(1);
     char cpf[12]; // var temporario q armazena cpf
 	int i;
     printf("Qual o CPF? "); // solicita o cpf temporario
@@ -218,6 +220,7 @@ void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
 	Retorno: sem retorno
 */
 void alterarCadastro(struct tCliente clientes[], int *quantClientes){
+    sleep(1);
     char cpf[12];
 	
     printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
@@ -305,6 +308,7 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
 	Retorno: sem retorno
 */
 void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig) {
+    sleep(1);
     char cpf[12];
     int i;
     printf("\nEFETIVAR COMPRA\n"); // para saber que entrou na opção de efetivar compra

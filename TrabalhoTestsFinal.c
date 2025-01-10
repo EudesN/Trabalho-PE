@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
+#include <unistd.h> // necessario para a função sleep
 #define maxClientes 200
 
 struct tCliente{
@@ -63,6 +64,7 @@ int main() {
         printf("08 - Listar bonus de todos os clientes\n");
         printf("09 - Listar clientes pelo valor total de compras\n");
         printf("00 - Sair\n\n");
+        sleep(0.7);
         printf("Digite a opcao desejada: ");
         scanf("%s", opcao);
 

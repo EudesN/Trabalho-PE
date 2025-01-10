@@ -45,7 +45,8 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes);
 
 /* FUNÇÃO PRINCIPAL */
 int main() {
-    setlocale(LC_ALL, "portuguese");
+    
+     //setlocale(LC_ALL, "portuguese");
 
     int quantClientes = 0;
     struct tCliente clientes[maxClientes];

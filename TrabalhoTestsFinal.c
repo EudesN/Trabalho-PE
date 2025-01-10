@@ -137,10 +137,10 @@ void configurarBonus(struct tBonus *bonusConfig) {
     do {
         printf("\nMENU CONFIGURAR BONUS\n");
         printf("1 - Alterar teto\n");
-        printf("2 - Alterar valor de 1 bônus\n");
-        printf("3 - Alterar valor para receber bônus\n");
+        printf("2 - Alterar valor de 1 bonus\n");
+        printf("3 - Alterar valor para receber bonus\n");
         printf("0 - Sair\n");
-        printf("Digite a opção desejada: ");
+        printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
 
         switch (opcao) {
@@ -176,16 +176,16 @@ void configurarBonus(struct tBonus *bonusConfig) {
 	Retorno: retorna para a função anterior caso caia em alguma condição
 */
 void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
-    sleep(1);
+    printf("\nCADASTRAR CLIENTE\n");
+
     char cpf[12]; // var temporario q armazena cpf
-	int i;
     printf("Qual o CPF? "); // solicita o cpf temporario
     scanf(" %s", cpf);
 
     if(validarCPF(cpf, clientes, *quantClientes) == 0){
 		return;
 	}
-	for(i = 0; i < *quantClientes; i++){
+	for(int i = 0; i < *quantClientes; i++){
 		if(strcmp(clientes[i].CPF, cpf) == 0){
 			printf("Erro: CPF ja cadastrado.\n");
 			return;
@@ -206,7 +206,7 @@ void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
 
     clientes[*quantClientes] = novoCliente;
     (*quantClientes)++;
-
+    sleep(1);
     printf("Cliente cadastrado com sucesso\n");
 }
 

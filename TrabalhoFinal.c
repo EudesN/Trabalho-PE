@@ -436,7 +436,6 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
 
     struct tCliente *cliente = &clientes[indice];
     int opcaoMenu;
-
     do {
         printf("\nMENU CANCELA COMPRA\n");
         printf("1 - Ultima compra\n");
@@ -466,9 +465,12 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                 scanf("%d", &confirma);
 
                 if (confirma == 1) {
+                    int totBonus = (int) cliente -> totCompras;
+                    int uBonus = (int) cliente -> uCompra;
                     cliente->totCompras -= cliente->uCompra;
                     cliente->uCompra = 0.0;
-                    cliente->bonus -= (int)(cliente->uCompra / bonusConfig->valorBonificado);
+                    cliente->bonus = totBonus - uBonus;
+
                     if (cliente->bonus < 0) cliente->bonus = 0;
                     printf("COMPRA CANCELADA!\n");
                 } else {

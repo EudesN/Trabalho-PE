@@ -88,7 +88,7 @@ int main() {
             printf("Programa encerrado.\n");
             return 0;
         } else {
-            printf("Opção inválida!\n");
+            printf("Opcao invalida!\n");
         }
     } while (strcmp(opcao, "00") != 0 || strcmp(opcao, "0") != 0);
 

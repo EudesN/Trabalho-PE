@@ -251,12 +251,12 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
 
         if(opcao == 1){
             char novoCPF[12];
-            int duploCpf = 0, i;
+            int duploCpf = 0;
 
             printf("Qual o novo CPF? ");
             scanf("%s", novoCPF);
 
-            for(i = 0; i < *quantClientes; i++){
+            for(int i = 0; i < *quantClientes; i++){
                 if(strcmp(clientes[i].CPF, novoCPF) == 0){
                     duploCpf = 1; // se o cpf já estiver cadastrado, altera o flag para 1
                     break;

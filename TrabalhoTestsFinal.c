@@ -149,7 +149,7 @@ void configurarBonus(struct tBonus *bonusConfig) {
                 scanf("%d", &bonusConfig->teto);
                 break;
             case 2:
-                printf("Qual o valor de 1 bônus? ");
+                printf("Qual o valor de 1 bonus? ");
                 scanf("%f", &bonusConfig->uvalor);
                 break;
             case 3:
@@ -157,10 +157,10 @@ void configurarBonus(struct tBonus *bonusConfig) {
                 scanf("%f", &bonusConfig->valorBonificado);
                 break;
             case 0:
-                printf("Saindo do menu de configuração de bônus...\n");
+                printf("Saindo do menu de configuração de bonus...\n");
                 break;
             default:
-                printf("Opção inválida!\n");
+                printf("Opcao inválida!\n");
                 break;
         }
     } while (opcao != 0);

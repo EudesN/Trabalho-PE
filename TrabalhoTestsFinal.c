@@ -217,7 +217,6 @@ void cadastrarCliente(struct tCliente clientes[], int *quantClientes){
 */
 void alterarCadastro(struct tCliente clientes[], int *quantClientes){
     char cpf[12];
-	int i;
 	
     printf("Qual o CPF do cliente?"); // pede o cpf que quer ser alterado
     scanf("%s", cpf);
@@ -228,7 +227,7 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
 	
     int indice = -1; // armazena o indice do cliente
 
-    for(i = 0; i < *quantClientes; i++){ 
+    for(int i = 0; i < *quantClientes; i++){ 
         if (strcmp(clientes[i].CPF, cpf) == 0){
             indice = i;
             break;

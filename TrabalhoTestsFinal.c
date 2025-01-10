@@ -575,14 +575,13 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
 	Retorno: sem retorno
 */
 void listarClientes(struct tCliente clientes[], int *quantClientes){
-	int i;
 	if(*quantClientes == 0){
 		printf("\nErro: Não há clientes cadastrados.\n");
 		return;
 	}
 	
 	printf("\nRELATORIO DADOS DOS CLIENTES\n\n");
-	for(i = 0; i < *quantClientes; i++){
+	for(int i = 0; i < *quantClientes; i++){
 		printf("Nome: %s\n", clientes[i].nome);
 		printf("CPF: %s\n", clientes[i].CPF);
 		printf("Telefone: %s\n", clientes[i].telefone);

@@ -536,37 +536,42 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
 									  de inputBonus					  
 	Retorno: sem retorno
 */
-void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig){
-	char cpf[12];
-    int indice = -1;
+void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig) {
+    char cpf[12];
+    int indice;
 
-    printf("Qual o CPF do cliente? ");
-    scanf(" %11s", cpf);
+    do {
+        indice = -1; // Resetar o índice para cada tentativa
+        printf("Qual o CPF do cliente? ");
+        scanf(" %11s", cpf);
 
-    // Procurar cliente pelo CPF
-    for (int i = 0; i < *quantClientes; i++) {
-        if (strcmp(clientes[i].CPF, cpf) == 0) {
-            indice = i;
-            break;
+        // Procurar cliente pelo CPF
+        for (int i = 0; i < *quantClientes; i++) {
+            if (strcmp(clientes[i].CPF, cpf) == 0) {
+                indice = i;
+                break;
+            }
         }
-    }
 
-    // Caso o CPF não seja encontrado
-    if (indice == -1) {
-        int opcaoCPF;
-        printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
-        scanf("%d", &opcaoCPF);
-        if (opcaoCPF == 1) {
-            consultarBonus(clientes, quantClientes, bonusConfig); // Tentar novamente
+        // Caso o CPF não seja encontrado
+        if (indice == -1) {
+            int opcaoCPF;
+            printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
+            scanf("%d", &opcaoCPF);
+
+            if (opcaoCPF != 1) {
+                return; // Sair da função caso o usuário não queira tentar novamente
+            }
         }
-        return;
-    }
-    
+
+    } while (indice == -1); // Continua enquanto o CPF não for encontrado
+
+    // Se o CPF foi encontrado, exibe os bônus e o valor correspondente
     struct tCliente *cliente = &clientes[indice];
-    int x = cliente -> bonus; // valor do bonus do que o cliente possui 
-    float y = cliente -> bonus * bonusConfig->uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
+    int x = cliente->bonus; // Valor do bônus que o cliente possui
+    float y = cliente->bonus * bonusConfig->uvalor; // Valor correspondente em reais
 
-    printf("Bonus = %d. VALOR CORRESPONDENTE = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
+    printf("Bonus = %d. VALOR CORRESPONDENTE = %.2f\n", x, y); // Imprime o bônus e o valor em reais
 }
 
 /* 

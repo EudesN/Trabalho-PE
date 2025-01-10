@@ -44,7 +44,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes);
 
 /* FUNÇÃO PRINCIPAL */
 int main() {
-    setlocale(LC_ALL, "portuguese");
+    // setlocale(LC_ALL, "portuguese");
 
     int quantClientes = 0;
     struct tCliente clientes[MAX_CLIENTES];
@@ -134,10 +134,10 @@ void configurarBonus(struct tBonus *bonusConfig) {
     do {
         printf("\nMENU CONFIGURAR BONUS\n");
         printf("1 - Alterar teto\n");
-        printf("2 - Alterar valor de 1 bônus\n");
-        printf("3 - Alterar valor para receber bônus\n");
+        printf("2 - Alterar valor de 1 bonus\n");
+        printf("3 - Alterar valor para receber bonus\n");
         printf("0 - Sair\n");
-        printf("Digite a opção desejada: ");
+        printf("Digite a opcao desejada: ");
         scanf("%d", &opcao);
 
         switch (opcao) {

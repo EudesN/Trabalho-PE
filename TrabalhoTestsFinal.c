@@ -347,7 +347,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
     if (cliente->bonus > 0) {
         int usarBonus;
         do {
-            printf("Deseja usar o bônus? [1 - Sim, 0 - Não] ");
+            printf("Deseja usar o bônus? [1 - Sim, 0 - Nao] ");
             scanf("%d", &usarBonus);
             if (usarBonus != 0 && usarBonus != 1) { // obrigar o usuario a digitar 0 ou 1
                 printf("Erro: opção inválida. Digite novamente.\n");

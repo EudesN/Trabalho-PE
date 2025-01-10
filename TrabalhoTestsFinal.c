@@ -45,7 +45,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes);
 
 /* FUNÇÃO PRINCIPAL */
 int main() {
-    
+
      //setlocale(LC_ALL, "portuguese");
 
     int quantClientes = 0;
@@ -154,11 +154,11 @@ void configurarBonus(struct tBonus *bonusConfig) {
                 scanf("%f", &bonusConfig->uvalor);
                 break;
             case 3:
-                printf("Qual o novo valor para receber bônus? ");
+                printf("Qual o novo valor para receber bonus? ");
                 scanf("%f", &bonusConfig->valorBonificado);
                 break;
             case 0:
-                printf("Saindo do menu de configuração de bonus...\n");
+                printf("Saindo do menu de configuracao de bonus...\n");
                 break;
             default:
                 printf("Opcao inválida!\n");

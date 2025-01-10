@@ -227,6 +227,7 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
 	}
 	
     int indice = -1; // armazena o indice do cliente
+
     for(i = 0; i < *quantClientes; i++){ 
         if (strcmp(clientes[i].CPF, cpf) == 0){
             indice = i;

@@ -538,13 +538,13 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
 */
 void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig){
 	char cpf[12];
-    int i, indice = -1;
+    int indice = -1;
 
     printf("Qual o CPF do cliente? ");
-    scanf(" %s", cpf);
+    scanf(" %11s", cpf);
 
     // Procurar cliente pelo CPF
-    for (i = 0; i < *quantClientes; i++) {
+    for (int i = 0; i < *quantClientes; i++) {
         if (strcmp(clientes[i].CPF, cpf) == 0) {
             indice = i;
             break;

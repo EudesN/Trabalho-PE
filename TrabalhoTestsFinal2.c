@@ -411,27 +411,31 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
 void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig) {
     char cpf[12];
     int i, indice = -1;
+    int opcaoCPF;
 
-    printf("Qual o CPF do cliente? ");
-    scanf(" %s", cpf);
+    do {
+        printf("Qual o CPF do cliente? ");
+        scanf(" %s", cpf);
 
-    // Procurar cliente pelo CPF
-    for (i = 0; i < *quantClientes; i++) {
-        if (strcmp(clientes[i].CPF, cpf) == 0) {
-            indice = i;
-            break;
+        // Procurar cliente pelo CPF
+        for (i = 0; i < *quantClientes; i++) {
+            if (strcmp(clientes[i].CPF, cpf) == 0) {
+                indice = i;
+                break;
+            }
         }
-    }
 
-    // Caso o CPF não seja encontrado
+        // Caso o CPF não seja encontrado
+        if (indice == -1) {
+            printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
+            scanf("%d", &opcaoCPF);
+        } else {
+            opcaoCPF = 0; // CPF encontrado, sair do loop
+        }
+    } while (indice == -1 && opcaoCPF == 1);
+
     if (indice == -1) {
-        int opcaoCPF;
-        printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
-        scanf("%d", &opcaoCPF);
-        if (opcaoCPF == 1) {
-            cancelarCompra(clientes, quantClientes, bonusConfig); // Tentar novamente
-        }
-        return;
+        return; // CPF não encontrado e usuário não quer tentar novamente
     }
 
     struct tCliente *cliente = &clientes[indice];

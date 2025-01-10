@@ -460,7 +460,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
 
                 printf("\nDados da ultima compra:\n");
                 printf("Valor: R$ %.2f\n", cliente->uCompra);
-                printf("Tem certeza que deseja cancelar a última compra? [1-sim, <outro valor>-nao]: ");
+                printf("Tem certeza que deseja cancelar a ultima compra? [1-sim, <outro valor>-nao]: ");
                 int confirma;
                 scanf("%d", &confirma);
 

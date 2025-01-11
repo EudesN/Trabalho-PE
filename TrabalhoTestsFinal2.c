@@ -26,7 +26,7 @@ struct tBonus{
 
 struct tCompra{
     float vuCompra;
-    int CompraCancel; // 0 = não cancelada, 1 = cancelada (iniciar com não cancelada)
+    int CompraCancel; // 0 = nao cancelada, 1 = cancelada (iniciar com nao cancelada)
     float vuBonus; // valor de 1 bonus quando essa compra foi realizada
 };
 
@@ -320,7 +320,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
             break;
         }
     }
-    if (indice == -1) { // caso o cpf não seja encontrado
+    if (indice == -1) { // caso o cpf nao seja encontrado
         printf("\nErro: CPF nao cadastrado\n");
         return; // retorna para o menu principal
     }
@@ -344,7 +344,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
     if (cliente->bonus > 0) {
         int usarBonus;
         do {
-            printf("Deseja usar o bonus? [1 - Sim, 0 - Não] ");
+            printf("Deseja usar o bonus? [1 - Sim, 0 - Nao] ");
             scanf("%d", &usarBonus);
             if (usarBonus != 0 && usarBonus != 1) { // obrigar o usuario a digitar 0 ou 1
                 printf("\nErro: opcao invalida. Digite novamente.\n");
@@ -353,7 +353,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
         if (usarBonus == 1) {
             float descontoBonus = y; // descontro do bonus = bonus do cliente * valor de 1 bonus que é y
             if (descontoBonus > valorCompra) { // se descontro do bonus for maior que o valor da compra
-                descontoBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq não pode ser maior 
+                descontoBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq nao pode ser maior 
             }
             valorF -= descontoBonus;
             printf("\nBonus atual = %d, Valor da compra atualizado = %.2f\n", x, valorF);
@@ -424,7 +424,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
         }
     }
 
-    // Caso o CPF não seja encontrado
+    // Caso o CPF nao seja encontrado
     if (indice == -1) {
         int opcaoCPF;
         printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
@@ -550,7 +550,7 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
         }
     }
 
-    // Caso o CPF não seja encontrado
+    // Caso o CPF nao seja encontrado
     if (indice == -1) {
         int opcaoCPF;
         printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
@@ -664,7 +664,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(valor >= clientes[i].totCompras){
-						printf("\nNão ha compras com valor inferior ao digitado\n");
+						printf("\nNao ha compras com valor inferior ao digitado\n");
 						break;
 					}
 					if(clientes[i].totCompras < valor){
@@ -716,7 +716,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(valor != clientes[i].totCompras){
-						printf("Não ha compras com valor igual ao digitado\n");
+						printf("Nao ha compras com valor igual ao digitado\n");
 						break;
 					}
 					if(clientes[i].totCompras == valor){

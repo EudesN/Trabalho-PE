@@ -26,7 +26,7 @@ struct tBonus{
 
 struct tCompra{
     float vuCompra;
-    int CompraCancel; // 0 = não cancelada, 1 = cancelada (iniciar com não cancelada)
+    int CompraCancel; // 0 = nao cancelada, 1 = cancelada (iniciar com nao cancelada)
     float vuBonus; // valor de 1 bonus quando essa compra foi realizada
 };
 
@@ -52,18 +52,20 @@ int main() {
     char opcao[3];
 
     do {
-        printf("\nMENU PRINCIPAL\n");
-        printf("01 - Configurar bônus\n");
+        printf("                 MENU PRINCIPAL\n");
+        printf("---------------------------------------------------\n");
+        printf("01 - Configurar bonus\n");
         printf("02 - Cadastrar cliente\n");
         printf("03 - Alterar cadastro do cliente\n");
         printf("04 - Efetivar compra\n");
         printf("05 - Cancelar compra\n");
-        printf("06 - Consultar bônus\n");
+        printf("06 - Consultar bonus\n");
         printf("07 - Listar dados de todos os clientes\n");
-        printf("08 - Listar bônus de todos os clientes\n");
+        printf("08 - Listar bonus de todos os clientes\n");
         printf("09 - Listar clientes pelo valor total de compras\n");
-        printf("00 - Sair\n\n");
-        printf("Digite a opção desejada: ");
+        printf("00 - Sair\n");
+        printf("---------------------------------------------------\n");
+        printf("Digite a opcao desejada: ");
         scanf("%s", opcao);
 
         if (strcmp(opcao, "01") == 0 || strcmp(opcao, "1") == 0) {
@@ -88,7 +90,7 @@ int main() {
             printf("Programa encerrado.\n");
             return 0;
         } else {
-            printf("Opção inválida!\n");
+            printf("Opção invalida!\n");
         }
     } while (strcmp(opcao, "00") != 0 || strcmp(opcao, "0") != 0);
 
@@ -146,18 +148,18 @@ void configurarBonus(struct tBonus *bonusConfig) {
                 scanf("%d", &bonusConfig->teto);
                 break;
             case 2:
-                printf("Qual o valor de 1 bônus? ");
+                printf("Qual o valor de 1 bonus? ");
                 scanf("%f", &bonusConfig->uvalor);
                 break;
             case 3:
-                printf("Qual o novo valor para receber bônus? ");
+                printf("Qual o novo valor para receber bonus? ");
                 scanf("%f", &bonusConfig->valorBonificado);
                 break;
             case 0:
-                printf("Saindo do menu de configuração de bônus...\n");
+                printf("Saindo do menu de configuracao de bonus...\n");
                 break;
             default:
-                printf("Opção inválida!\n");
+                printf("Opção invalida!\n");
                 break;
         }
     } while (opcao != 0);
@@ -286,7 +288,6 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         else if(opcao == 0){
             printf("\nVoltando ao menu principal...\n");
-            printf("---------------------------------------------------\n");
         }
         else{
             printf("\nOpcao invalida.\n");
@@ -319,8 +320,8 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
             break;
         }
     }
-    if (indice == -1) { // caso o cpf não seja encontrado
-        printf("\nErro: CPF não cadastrado\n");
+    if (indice == -1) { // caso o cpf nao seja encontrado
+        printf("\nErro: CPF nao cadastrado\n");
         return; // retorna para o menu principal
     }
 
@@ -328,7 +329,7 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
     int x = cliente->bonus; // valor do bonus do que o cliente possui 
     float y = cliente->bonus * bonusConfig->uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
 
-    printf("\nBônus = %d, Valor correspondente = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
+    printf("\nBonus = %d, Valor correspondente = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
 
     float valorCompra;
     do {
@@ -343,19 +344,19 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
     if (cliente->bonus > 0) {
         int usarBonus;
         do {
-            printf("Deseja usar o bônus? [1 - Sim, 0 - Não] ");
+            printf("Deseja usar o bonus? [1 - Sim, 0 - Nao] ");
             scanf("%d", &usarBonus);
             if (usarBonus != 0 && usarBonus != 1) { // obrigar o usuario a digitar 0 ou 1
-                printf("\nErro: opção inválida. Digite novamente.\n");
+                printf("\nErro: opcao invalida. Digite novamente.\n");
             }
         } while (usarBonus != 0 && usarBonus != 1);
         if (usarBonus == 1) {
             float descontoBonus = y; // descontro do bonus = bonus do cliente * valor de 1 bonus que é y
             if (descontoBonus > valorCompra) { // se descontro do bonus for maior que o valor da compra
-                descontoBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq não pode ser maior 
+                descontoBonus = valorCompra; // o valor do desconto do bonus é igual ao valor da compra pq nao pode ser maior 
             }
             valorF -= descontoBonus;
-            printf("\nBônus atual = %d, Valor da compra atualizado = %.2f\n", x, valorF);
+            printf("\nBonus atual = %d, Valor da compra atualizado = %.2f\n", x, valorF);
         }
     }
 
@@ -369,11 +370,11 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
     } while (valorPago <= 0);
 
     while (valorPago < valorF) {
-        printf("Erro: Valor do pagamento inferior ao valor da compra. Deseja desistir da compra? [1 - Sim, Outro - Não]: ");
+        printf("Erro: Valor do pagamento inferior ao valor da compra. Deseja desistir da compra? [1 - Sim, Outro - Nao]: ");
         int desistir;
         scanf("%d", &desistir);
         if (desistir == 1) {
-            printf("Compra não efetivada. Valor devolvido ao cliente: R$ %.2f.\n", valorPago);
+            printf("Compra nao efetivada. Valor devolvido ao cliente: R$ %.2f.\n", valorPago);
             return;
         }
         printf("Qual o valor do pagamento do cliente? R$ ");
@@ -423,7 +424,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
         }
     }
 
-    // Caso o CPF não seja encontrado
+    // Caso o CPF nao seja encontrado
     if (indice == -1) {
         int opcaoCPF;
         printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
@@ -454,13 +455,13 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                 }
 
                 if (cliente->bonus < 0) {
-                    printf("ERRO: Ultima compra já cancelada!\n");
+                    printf("ERRO: Ultima compra ja cancelada!\n");
                     break;
                 }
 
-                printf("\nDados da última compra:\n");
+                printf("\nDados da ultima compra:\n");
                 printf("Valor: R$ %.2f\n", cliente->uCompra);
-                printf("Tem certeza que deseja cancelar a última compra? [1-sim, <outro valor>-nao]: ");
+                printf("Tem certeza que deseja cancelar a ultima compra? [1-sim, <outro valor>-nao]: ");
                 int confirma;
                 scanf("%d", &confirma);
 
@@ -474,7 +475,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                     if (cliente->bonus < 0) cliente->bonus = 0;
                     printf("COMPRA CANCELADA!\n");
                 } else {
-                    printf("COMPRA NÃO CANCELADA!\n");
+                    printf("COMPRA NAO CANCELADA!\n");
                 }
                 break;
             }
@@ -490,7 +491,7 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                 }
 
                 int bonusDescontar = (int)(valorCompra / bonusConfig->valorBonificado) * 2;
-                printf("BONUS A SER DESCONTADO = %d. Tem certeza que deseja cancelar a compra? [1-sim, <outro valor>-nao]: ", bonusDescontar);
+                printf("Bonus a ser descontado = %d. Tem certeza que deseja cancelar a compra? [1-sim, <outro valor>-nao]: ", bonusDescontar);
                 int confirma;
                 scanf("%d", &confirma);
 
@@ -500,17 +501,17 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                     if (cliente->bonus < 0) cliente->bonus = 0;
                     printf("COMPRA CANCELADA!\n");
                 } else {
-                    printf("COMPRA NÃO CANCELADA!\n");
+                    printf("COMPRA NAO CANCELADA!\n");
                 }
                 break;
             }
             case 3: {
                 // Exibir dados da ultima compra
-                printf("NOME DO CLIENTE: %s\n", cliente->nome);
-                printf("CPF DO CLIENTE: %s\n", cliente->CPF);
-                printf("VALOR DA COMPRA: R$ %.2f\n", cliente->uCompra);
-                printf("BONUS UTILIZADOS: %d\n", cliente->bonus);
-                printf("VALOR DE UM BONUS NA EPOCA DA COMPRA: R$ %.2f\n", bonusConfig->uvalor);
+                printf("Nome do cliente: %s\n", cliente->nome);
+                printf("CPF do Cliente: %s\n", cliente->CPF);
+                printf("Valor da compra: R$ %.2f\n", cliente->uCompra);
+                printf("Bonus Utilizados: %d\n", cliente->bonus);
+                printf("Valor de um bonus na epoca da compra: R$ %.2f\n", bonusConfig->uvalor);
                 break;
             }
             case 0:
@@ -549,7 +550,7 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
         }
     }
 
-    // Caso o CPF não seja encontrado
+    // Caso o CPF nao seja encontrado
     if (indice == -1) {
         int opcaoCPF;
         printf("Erro: CPF nao cadastrado. Deseja informar outro CPF [1-sim, <outro valor>-nao]? ");
@@ -578,7 +579,7 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
 */
 void listarClientes(struct tCliente clientes[], int *quantClientes){
 	if(*quantClientes == 0){
-		printf("\nErro: Não há clientes cadastrados.\n");
+		printf("\nErro: Nao ha clientes cadastrados.\n");
 		return;
 	}
 	
@@ -589,7 +590,6 @@ void listarClientes(struct tCliente clientes[], int *quantClientes){
 		printf("Telefone: %s\n", clientes[i].telefone);
 		printf("Bonus: %d\n", clientes[i].bonus);
 		printf("Total em compras: R$ %.2f\n", clientes[i].totCompras);
-		printf("------------------------------------------------------------\n");
 	}
 }
 
@@ -607,7 +607,7 @@ void listarClientes(struct tCliente clientes[], int *quantClientes){
 void listarBonus(struct tCliente clientes[], int *quantClientes, struct tBonus *bonusConfig){
 	int i;
 	if(*quantClientes == 0){
-		printf("\nErro: Não há clientes cadastrados.\n");
+		printf("\nErro: Nao ha clientes cadastrados.\n");
 		return;
 	}
 	
@@ -637,7 +637,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 	int i, opcao, aux;
 	float valor, valorInicial, valorFinal;
 	if(*quantClientes == 0){
-		printf("\nErro: Não há clientes cadastrados.\n");
+		printf("\nErro: Nao ha clientes cadastrados.\n");
 		return;
 	}
 	
@@ -664,14 +664,14 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(valor >= clientes[i].totCompras){
-						printf("\nNão há compras com valor inferior ao digitado\n");
+						printf("\nNao ha compras com valor inferior ao digitado\n");
 						break;
 					}
 					if(clientes[i].totCompras < valor){
 						printf("Nome: %s\n", clientes[i].nome);
 						printf("CPF: %s\n", clientes[i].CPF);
 						printf("Total em compras: R$ %.2f\n", clientes[i].totCompras);
-						printf("------------------------------------------------------------\n");
+                        printf("------------------------------------------------------------\n");
 					}
 				}
 			}
@@ -690,7 +690,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(valor >= clientes[i].totCompras){
-						printf("Não há compras com valor superior ao digitado\n");
+						printf("Nao ha compras com valor superior ao digitado\n");
 						break;
 					}
 					if(clientes[i].totCompras > valor){
@@ -716,7 +716,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(valor != clientes[i].totCompras){
-						printf("Não há compras com valor igual ao digitado\n");
+						printf("Nao ha compras com valor igual ao digitado\n");
 						break;
 					}
 					if(clientes[i].totCompras == valor){
@@ -756,7 +756,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
 					if(!(valor <= clientes[i].totCompras && valor >= clientes[i].totCompras)){
-						printf("Não há compras com valor na faixa de %f e %f\n", valorInicial, valorFinal);
+						printf("Nao há compras com valor na faixa de %f e %f\n", valorInicial, valorFinal);
 						break;
 					}
 					if(clientes[i].totCompras >= valorInicial && clientes[i].totCompras <= valorFinal){

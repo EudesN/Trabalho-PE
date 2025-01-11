@@ -562,8 +562,9 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
     }
     
     struct tCliente *cliente = &clientes[indice];
+    
     int x = cliente -> bonus; // valor do bonus do que o cliente possui 
-    float y = cliente -> bonus * bonusConfig->uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
+    float y = cliente -> bonus * bonusConfig -> uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
 
     printf("Bonus = %d. VALOR CORRESPONDENTE = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
 }

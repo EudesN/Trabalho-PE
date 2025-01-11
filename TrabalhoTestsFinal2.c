@@ -52,7 +52,6 @@ int main() {
     char opcao[3];
 
     do {
-        printf("---------------------------------------------------\n");
         printf("                 MENU PRINCIPAL\n");
         printf("---------------------------------------------------\n");
         printf("01 - Configurar bonus\n");
@@ -672,6 +671,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 						printf("Nome: %s\n", clientes[i].nome);
 						printf("CPF: %s\n", clientes[i].CPF);
 						printf("Total em compras: R$ %.2f\n", clientes[i].totCompras);
+                        printf("------------------------------------------------------------\n");
 					}
 				}
 			}

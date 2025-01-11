@@ -473,7 +473,10 @@ void cancelarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
                     int uBonus = (int) cliente -> uCompra;
                     cliente->totCompras -= cliente->uCompra;
                     cliente->uCompra = 0.0;
-                    cliente->bonus = totBonus - uBonus;
+                    int bonusASerDescontado = (int)(cliente->uCompra / bonusConfig->valorBonificado);
+                    cliente->bonus -= bonusASerDescontado;
+                    if (cliente->bonus < 0) cliente->bonus = 0;
+
 
                     if (cliente->bonus < 0) cliente->bonus = 0;
                     printf("COMPRA CANCELADA!\n");

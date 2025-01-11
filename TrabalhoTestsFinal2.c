@@ -108,20 +108,20 @@ int main() {
 			 e, caso contrario, retorna 1 (CPF valido) 
 */
 int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
-	if(strlen(cpf) != 11){
-		printf("Erro: CPF deve possuir 11 caracteres.\n");
-		return 0;
-	}
-	
-	int i;
-	for(i = 0; i < 11; i++){
-		if(cpf[i] < '0' || cpf[i] > '9'){
-			printf("Erro: digite somente numeros.\n");
-			return 0;
-		}
-	}
-
-	return 1;
+    if(strlen(cpf) != 11){
+        printf("Erro: CPF deve possuir 11 caracteres.\n");
+        return 0;
+    }
+    
+    int i;
+    for(i = 0; i < 11; i++){
+        if(cpf[i] < '0' || cpf[i] > '9'){
+            printf("Erro: digite somente numeros.\n");
+            return 0;
+        }
+    }
+    
+    return 1;
 }
 
 /* 

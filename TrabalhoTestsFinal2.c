@@ -52,7 +52,9 @@ int main() {
     char opcao[3];
 
     do {
-        printf("\nMENU PRINCIPAL\n");
+        printf("---------------------------------------------------\n");
+        printf("                 MENU PRINCIPAL\n");
+        printf("---------------------------------------------------\n");
         printf("01 - Configurar bonus\n");
         printf("02 - Cadastrar cliente\n");
         printf("03 - Alterar cadastro do cliente\n");
@@ -62,7 +64,8 @@ int main() {
         printf("07 - Listar dados de todos os clientes\n");
         printf("08 - Listar bonus de todos os clientes\n");
         printf("09 - Listar clientes pelo valor total de compras\n");
-        printf("00 - Sair\n\n");
+        printf("00 - Sair\n");
+        printf("---------------------------------------------------\n");
         printf("Digite a opcao desejada: ");
         scanf("%s", opcao);
 
@@ -286,7 +289,6 @@ void alterarCadastro(struct tCliente clientes[], int *quantClientes){
         }
         else if(opcao == 0){
             printf("\nVoltando ao menu principal...\n");
-            printf("---------------------------------------------------\n");
         }
         else{
             printf("\nOpcao invalida.\n");

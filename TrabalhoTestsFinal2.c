@@ -44,7 +44,6 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes);
 
 /* FUNÇÃO PRINCIPAL */
 int main() {
-    // setlocale(LC_ALL, "portuguese");
 
     int quantClientes = 0;
     struct tCliente clientes[MAX_CLIENTES];
@@ -108,20 +107,20 @@ int main() {
 			 e, caso contrario, retorna 1 (CPF valido) 
 */
 int validarCPF(char cpf[], struct tCliente clientes[], int quantClientes){
-    if(strlen(cpf) != 11){
-        printf("Erro: CPF deve possuir 11 caracteres.\n");
-        return 0;
-    }
-    
-    int i;
-    for(i = 0; i < 11; i++){
-        if(cpf[i] < '0' || cpf[i] > '9'){
-            printf("Erro: digite somente numeros.\n");
-            return 0;
-        }
-    }
-    
-    return 1;
+	if(strlen(cpf) != 11){
+		printf("Erro: CPF deve possuir 11 caracteres.\n");
+		return 0;
+	}
+	
+	int i;
+	for(i = 0; i < 11; i++){
+		if(cpf[i] < '0' || cpf[i] > '9'){
+			printf("Erro: digite somente numeros.\n");
+			return 0;
+		}
+	}
+
+	return 1;
 }
 
 /* 
@@ -393,7 +392,11 @@ void efetivarCompra(struct tCliente clientes[], int *quantClientes, struct tBonu
         }
     } else {
         float usadoBonus = valorCompra - valorF;
-        cliente->bonus -= (int)(usadoBonus / bonusConfig->uvalor);
+        int bonusASerDescontado = (int)(usadoBonus / bonusConfig->uvalor);
+        cliente->bonus -= bonusASerDescontado;
+        if (cliente->bonus < 0) {
+            cliente->bonus = 0; // Garantir que o bônus nunca seja negativo
+        }
     }
     printf("Compra realizada com sucesso!\n");
 }
@@ -562,9 +565,8 @@ void consultarBonus(struct tCliente clientes[], int *quantClientes, struct tBonu
     }
     
     struct tCliente *cliente = &clientes[indice];
-    
     int x = cliente -> bonus; // valor do bonus do que o cliente possui 
-    float y = cliente -> bonus * bonusConfig -> uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
+    float y = cliente -> bonus * bonusConfig->uvalor; // valor correspondernte em reais (bonus * valor de 1 bonus)
 
     printf("Bonus = %d. VALOR CORRESPONDENTE = %.2f\n", x, y); // imprime o valor do bonus e o valor correspondente em reais
 }
@@ -756,7 +758,7 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 				}
 				printf("\nRELATORIO DE COMPRAS\n\n");
 				for(i = 0; i < *quantClientes; i++){
-					if(!(valor <= clientes[i].totCompras && valor >= clientes[i].totCompras)){
+					if (clientes[i].totCompras >= valorInicial && clientes[i].totCompras <= valorFinal) {
 						printf("Nao há compras com valor na faixa de %f e %f\n", valorInicial, valorFinal);
 						break;
 					}

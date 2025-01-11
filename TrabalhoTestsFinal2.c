@@ -591,7 +591,6 @@ void listarClientes(struct tCliente clientes[], int *quantClientes){
 		printf("Telefone: %s\n", clientes[i].telefone);
 		printf("Bonus: %d\n", clientes[i].bonus);
 		printf("Total em compras: R$ %.2f\n", clientes[i].totCompras);
-		printf("------------------------------------------------------------\n");
 	}
 }
 
@@ -673,7 +672,6 @@ void listarClientesPorCompra(struct tCliente clientes[], int *quantClientes){
 						printf("Nome: %s\n", clientes[i].nome);
 						printf("CPF: %s\n", clientes[i].CPF);
 						printf("Total em compras: R$ %.2f\n", clientes[i].totCompras);
-						printf("------------------------------------------------------------\n");
 					}
 				}
 			}
